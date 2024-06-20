@@ -1,0 +1,30 @@
+{
+    "name": "employee-tracker",
+    "version": "1.0.0",
+    "description": "Challenge 12: SQL Challenge: Employee Tracker",
+    "main": "server.js",
+    "scripts": {
+      "test": "jest",
+      "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thernand09/Employee-Tracker"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/thernand09/Employee-Tracker"
+    },
+    "homepage": "https://github.com/thernand09/Employee-Tracker",
+    "dependencies": {
+        "console.table": "^0.10.0",
+        "express": "^4.17.1",
+        "inquirer": "^8.2.0",
+        "mysql2": "^2.3.3-rc.0"
+      },
+      "devDependencies": {
+        "jest": "^27.3.1"
+      }
+    }
