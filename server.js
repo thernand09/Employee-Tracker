@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const consoleTable = require('console-table');
+const consoleTable = require('console.table');
 const db = require ('./db/connection');
 
 
@@ -89,7 +89,7 @@ const editEmployeeRoleQs = [
 
 // All functions to use for manipulating MySQL database
 const addRole = async() => {
-    const result = await inquirer.prompt(addRoleQuestions)
+    const result = await inquirer.prompt(addRoleQs)
     const sql = `INSERT INTO role (title, salary, department_id)
     VALUES (?,?,?)`;
     const params = [result.title, result.salary, result.department];
