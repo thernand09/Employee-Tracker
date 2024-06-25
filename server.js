@@ -5,22 +5,20 @@ const cTable = require('console.table');
 
 // Create Connection to Database
 const pool = new Pool({
-  user: process.env.PGUSER,         
-  host: process.env.PGHOST,       
-  database: process.env.PGDATABASE, 
-  password: process.env.PGPASSWORD,             
-  port: process.env.PGPORT,               
+  user: process.env.DB_USER,         
+  host: process.env.DB_HOST,       
+  database: process.env.DB_DATABASE, 
+  password: process.env.DB_PASSWORD,             
+  port: process.env.DB_PORT,               
 });
-
 
 pool.connect((err) => {
   if (err) {
     throw err;
   }
+  console.log('Connected to the my_company_db database!');
   startTracker();
 });
-
-console.log('Connected to the my_company_db database!');
 
 // Function that opens company tracker and prompts user with options
 function startTracker() {
@@ -32,7 +30,8 @@ function startTracker() {
       choices: [
         'View all departments', 
         'View employees by department', 
-        'Add department', 'View all roles', 
+        'Add department', 
+        'View all roles', 
         'View roles by manager', 
         'Add role', 
         'View all employees', 
@@ -42,7 +41,7 @@ function startTracker() {
       ]
     }
   ]).then((answer) => {
-    switch (answer.intro) {
+    switch (answer.prompt) {
       case 'View all departments':
         viewDepartments();
         break;
@@ -53,7 +52,7 @@ function startTracker() {
         viewEmployees();
         break;
       case 'View roles by manager':
-       viewRoleByManager();
+        viewRoleByManager();
         break;
       case 'View employees by department':
         viewEmployeesByDepartment();
@@ -68,10 +67,10 @@ function startTracker() {
         addEmployee();
         break;
       case 'Update employee role':
-        updateEmployee();
+        updateRole();
         break;
       case 'Quit':
-        console.log('Good Bye!')
+        console.log('Good Bye!');
         pool.end();
         break;
     }
@@ -142,7 +141,7 @@ function addDepartment() {
         return;
       }
       console.log("Added " + answer.department + " to the database");
-    startTracker();
+      startTracker();
     });
   });
 };
