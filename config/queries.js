@@ -17,22 +17,22 @@ const getEmployees = async () => {
 
 const addDepartment = async (name) => {
   const res = await pool.query('INSERT INTO department (name) VALUES ($1) RETURNING *', [name]);
-  return res.rows[0];
+  return res;
 };
 
 const addRole = async (title, salary, department_id) => {
   const res = await pool.query('INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3) RETURNING *', [title, salary, department_id]);
-  return res.rows[0];
+  return res;
 };
 
 const addEmployee = async (first_name, last_name, role_id, manager_id) => {
   const res = await pool.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4) RETURNING *', [first_name, last_name, role_id, manager_id]);
-  return res.rows[0];
+  return res;
 };
 
 const updateEmployeeRole = async (employee_id, role_id) => {
   const res = await pool.query('UPDATE employee SET role_id = $1 WHERE id = $2 RETURNING *', [role_id, employee_id]);
-  return res.rows[0];
+  return res;
 };
 
 module.exports = {
