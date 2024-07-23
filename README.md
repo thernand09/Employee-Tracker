@@ -50,4 +50,4 @@ Type `node srever.js` to initiate the server.
 ## Links 
 
 Repo: https://github.com/thernand09/Employee-Tracker
-Video Walkthrough: 
+Video Walkthrough: https://github.com/thernand09/Employee-Tracker/blob/main/assets/12-SQL-Employee-Tracker.gif
