@@ -1,9 +1,12 @@
--- Drop existing tables
+-- Drop existing database
 DROP DATABASE IF EXISTS employee_db;
-
+-- Create db
 CREATE DATABASE employee_db;
 
+-- connect to employee_db
 \c employee_db
+
+-- create tables
 
 CREATE TABLE department (
     id SERIAL PRIMARY KEY,
